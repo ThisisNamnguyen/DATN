@@ -77,7 +77,6 @@ class HomeController extends Controller
             $key = $category->name;
             $data[$key] = $productCount;
         }
-        // dd($data);
         return view('admin.dashboard',[
             'totalOrders' => $totalOrders,
             'totalProducts' => $totalProducts,
