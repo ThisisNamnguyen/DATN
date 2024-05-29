@@ -91,7 +91,7 @@ Route::group(['prefix' => 'account'], function(){
 
         Route::get('cancel-order/{id}',[AuthController::class, 'cancelOrder'])->name('frontend.account.cancelOrder');
         Route::put('/cancel-reason/{id}', [AuthController::class, 'cancelReason'])->name('frontend.account.cancelReason');
-        Route::any('/change-order-status/{id}', [AuthController::class, 'changeOrderStatus'])->name('frontend.account.changeOrderStatus');
+        Route::post('/change-order-status/{id}', [AuthController::class, 'changeOrderStatus'])->name('frontend.account.changeOrderStatus');
     });
 });
 //Back-end
@@ -174,6 +174,8 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
         Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
         Route::delete('/users/{user}', [UserController::class, 'delete'])->name('users.delete');
+        Route::get('/change-role',[UserController::class, 'changeRole'])->name('users.changeRole');
+
 
 
         //Create temp image

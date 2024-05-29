@@ -6,7 +6,7 @@
         <div class="container">
             <div class="light-font">
                 <ol class="breadcrumb primary-color mb-0">
-                    <li class="breadcrumb-item"><a class="white-text" href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a class="white-text" href="{{ route('frontend.homepage')}}">Trang chủ</a></li>
                     <li class="breadcrumb-item active">Cửa hàng</li>
                 </ol>
             </div>
@@ -90,9 +90,9 @@
 
                                         <a href="{{ route("frontend.product",$product->slug)}}" class="product-img">
                                         @if (!empty($productImage->image))
-                                            <img src="{{ asset('/uploads/product/small/'.$productImage->image)}}" class="card-img-top" ></td>
+                                            <img src="{{ asset('/uploads/product/small/'.$productImage->image)}}" class="card-img-top img-product" ></td>
                                         @else
-                                            <img src="{{ asset('admin-assets/img/default-150x150.png')}}" class="card-img-top " ></td>
+                                            <img src="{{ asset('admin-assets/img/default-150x150.png')}}" class="card-img-top img-product" ></td>
                                         @endif
                                         </a>
                                         <a onclick="addToWishlist( {{$product->id}} )" class="whishlist" href="javascript:void(0);"><i class="far fa-heart"></i></a>
@@ -115,7 +115,7 @@
                                         @endif
                                         </div>
                                     </div>
-                                    <div class="card-body text-center mt-3">
+                                    <div class="card-body text-center mt-3 card-footer-product">
                                         <a class="h6 link" href="product.php">{{$product->title}}</a>
                                         <div class="price mt-2">
                                             <span class="h5"><strong>{{number_format($product->price)}}đ</strong></span>

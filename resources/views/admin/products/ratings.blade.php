@@ -40,7 +40,7 @@
                     <thead>
                         <tr>
                             <th width="60">ID</th>
-                            <th>Tến sản phẩm</th>
+                            <th>Tên sản phẩm</th>
                             <th>Đánh giá</th>
                             <th>Bình luận</th>
                             <th>Đánh giá bởi</th>
@@ -93,33 +93,9 @@
 
 @section('customJS')
 <script>
-    function deleteProduct(id){
-
-        var url = '{{ route("products.delete","ID") }}';
-        var newUrl = url.replace("ID",id)
-
-        if (confirm("Are you sure you want to delete?")) {
-            $.ajax({
-                url: newUrl,
-                type: 'delete',
-                data: {},
-                dataType: 'json',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function(response) {
-                    if (response["status"]) {
-                        window.location.href="{{ route('products.index')}}";
-                    } else {
-                        window.location.href="{{ route('products.index')}}";
-                    }
-                }
-            });
-        }
-    }
 
     function changeStatus(status,id){
-        if (confirm("Are you sure you want to change status?")) {
+        if (confirm("Bạn có chắc chắn muốn thay đổi trạng thái hiển thị của bình luận này?")) {
             $.ajax({
                 url: '{{ route("products.changeRatingStatus")}}',
                 type: 'get',

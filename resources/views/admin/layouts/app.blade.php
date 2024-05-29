@@ -102,9 +102,9 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 
-        <script src="{{ asset('admin-assets/plugins/daterangepicker/daterangepicker.js')}}"></script>
+        {{-- <script src="{{ asset('admin-assets/plugins/daterangepicker/daterangepicker.js')}}"></script> --}}
 
-        <script src="{{ asset('admin-assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+        {{-- <script src="{{ asset('admin-assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script> --}}
 
         <script src="{{ asset('admin-assets/plugins/summernote/summernote-bs4.min.js')}}"></script>
         <script src="{{ asset('admin-assets/plugins/chart.js/Chart.bundle.min.js')}}"></script>

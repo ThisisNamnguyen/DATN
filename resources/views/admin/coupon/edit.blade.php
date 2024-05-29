@@ -10,7 +10,7 @@
                 <h1>Chỉnh sửa mã giảm giá</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="{{ route('coupons.index')}}" class="btn btn-primary">QUay lại</a>
+                <a href="{{ route('coupons.index')}}" class="btn btn-primary">Quay lại</a>
             </div>
         </div>
     </div>

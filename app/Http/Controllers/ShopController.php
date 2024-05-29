@@ -131,10 +131,10 @@ class ShopController extends Controller
         $productRating->email = $request->email;
         $productRating->comment = $request->comment;
         $productRating->rating = $request->rating;
-        $productRating->status = 0;
+        $productRating->status = 1;
         $productRating->save();
 
-        $message = 'Thanks for your rating';
+        $message = 'Cảm ơn bạn đã đánh giá';
 
         session()->flash('success', $message);
         return response()->json([

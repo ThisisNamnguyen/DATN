@@ -115,6 +115,17 @@ class UserController extends Controller
         }
     }
 
+    public function changeRole(Request $request) {
+        $user = User::find($request->id);
+        $user->role = $request->status;
+        $user->save();
+
+        session()->flash('success', 'Thay đổi quyền thành công thành công');
+        return response()->json([
+            'status' => true
+        ]);
+    }
+
     public function delete($userId, Request $request) {
         $user = User::find($userId);
 

@@ -152,9 +152,6 @@
                                 <a class='link-dark' href="{{ route('frontend.account.cancelOrder', $order->id)}}">Hủy đơn</a>
                             </div>
                         @endif
-                        <div class="card-body">
-                            <a class='link-dark' href="">Cần hỗ trợ?</a>
-                        </div>
                         @if ($order->status == 'delivered')
                         <form action="" method="post" id="changeOrderStatus" name="changeOrderStatus">
                             <div class="card-body">
@@ -182,7 +179,9 @@
             data: $(this).serializeArray(),
             dataType: 'json',
             success: function(response) {
-                window.location.href = '{{ route("frontend.account.orderDetail", $order->id) }}';
+                if (response) {
+                    window.location.href = '{{ route("frontend.account.orderDetail", $order->id) }}';
+                }
             }
         });
     });

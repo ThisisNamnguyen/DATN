@@ -34,7 +34,7 @@
                                             @if($records->isNotEmpty())
                                                 @foreach ($records as $item)
                                                     {{-- <option value="{{ $item->id}}">{{ $item->product_name}}</option> --}}
-                                                    <option {{($product->barcode == $item->barcode) ? 'selected' : ''}} value="{{ $item->id}}">{{ $item->product_name}}</option>
+                                                    <option {{($product->barcode == $item->barcode) ? 'selected' : ''}} value="{{ $item->barcode}}">{{ $item->product_name}}</option>
                                                 @endforeach
                                             @endif
                                         </select>
@@ -323,6 +323,25 @@
                 $.each(response["subCategories"], function(key, item){
                     $("#sub_category").append(`<option value='${item.id}'>${item.name}</option>`)
                 });
+            },
+            error: function() {
+                console.log("Something went wrong");
+            }
+        });
+    });
+
+    $("#product_code").change(function(){
+        var product_code_id = $(this).val();
+        $.ajax({
+            url: '{{ route("product-quantity.index")}}',
+            type: 'get',
+            data: {product_code_id:product_code_id},
+            dataType: 'json',
+            success: function(response) {
+                if (response["status"] == true) {
+                    $("#qty").val(response["qty"]);
+                    $("#barcode").val(response["barcode"]);
+                }
             },
             error: function() {
                 console.log("Something went wrong");

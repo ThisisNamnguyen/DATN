@@ -26,13 +26,13 @@ class HomeController extends Controller
         $totalUsers = User::where('role', 1)->count();
         $totalRating = ProductRating::count();
 
-        $totalRevenue = Order::where('status', '!=' , 'cancelled')->sum('grand_total');
+        $totalRevenue = Order::where('status', 'shipped')->sum('grand_total');
 
         //This month revenue
         $startOfMonth =  Carbon::now()->startOfMonth()->format('Y-m-d');
         $currentDate = Carbon::now()->format('Y-m-d');
 
-        $revenueThisMonth = Order::where('status', '!=', 'cancelled')
+        $revenueThisMonth = Order::where('status', 'shipped')
                             ->whereDate('created_at', '>=', $startOfMonth)
                             ->whereDate('created_at', '<=', $currentDate)
                             ->sum('grand_total');

@@ -156,9 +156,11 @@ class ProductController extends Controller
             $relatedProducts = Product::whereIn('id', $productArray)->with('product_images')->get();
         }
 
-        $records = ImportItem::orderBy('product_name', 'ASC')->get();
+        // $records = ImportItem::orderBy('product_name', 'ASC')->get();
+        $records = ImportItem::select('product_name', 'barcode')->orderBy('product_name', 'ASC')->distinct()->get();
+
         $data = [];
-        $data['records'] = $records;
+        // $data['records'] = $records;
         $data['categories'] = $categories;
         $data['product'] = $product;
         $data['subCategories'] = $subCategories;

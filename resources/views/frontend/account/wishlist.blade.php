@@ -47,9 +47,9 @@
                                         <div class="pt-2">
                                             <h3 class="product-title fs-base mb-2"><a href="{{ route("frontend.product", $item->product->slug) }}">{{ $item->product->title }}</a></h3>
                                             <div class="fs-lg text-accent pt-2">
-                                                <span class="h5"><strong>{{$item->product->price}}đ</strong></span>
+                                                <span class="h5"><strong>{{number_format($item->product->price)}}đ</strong></span>
                                                 @if ($item->product->compare_price > 0)
-                                                <span class="h6 text-underline"><del>{{$item->product->compare_price}}đ</del></span>
+                                                <span class="h6 text-underline"><del>{{number_format($item->product->compare_price)}}đ</del></span>
                                                 @endif
                                             </div>
                                         </div>

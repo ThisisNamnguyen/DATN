@@ -122,7 +122,7 @@
         var url = '{{ route("coupons.delete","ID") }}';
         var newUrl = url.replace("ID",id)
 
-        if (confirm("Are you sure you want to delete?")) {
+        if (confirm("Bạn có chắc chắn muốn xóa mã giảm giá này?")) {
             $.ajax({
                 url: newUrl,
                 type: 'delete',

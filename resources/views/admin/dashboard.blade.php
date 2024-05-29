@@ -22,8 +22,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
-                <div class="small-box card">
-                    <div class="inner bg-info">
+                <div class="small-box card bg-info">
+                    <div class="inner">
                         <p>Tổng số đơn hàng</p>
                         <h3>{{ $totalOrders }}</h3>
                     </div>
@@ -80,7 +80,7 @@
                     <div class="card-header">
                         <h3 class="card-title">
                             <i class="fas fa-chart-pie mr-1"></i>
-                            Thống kê số lượng mặt hàng trên từng danh mục hàng
+                            Thống kê số lượng mặt hàng đã đặt trên từng danh mục hàng
                         </h3>
                     </div>
                     <div class="card-body">
@@ -168,8 +168,10 @@
 <!-- /.content -->
 @endsection
 
-
 @section('customJS')
+<script src="{{ asset('admin-assets/plugins/daterangepicker/daterangepicker.js')}}"></script>
+
+<script src="{{ asset('admin-assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
 <script>
 $(function () {
 

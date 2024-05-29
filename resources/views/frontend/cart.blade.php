@@ -162,7 +162,7 @@
     }
 
     function deleteItem(rowId) {
-        if (confirm('Are you sure you want to delete this item?')) {
+        if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?')) {
             $.ajax({
             url: '{{route("frontend.deleteItem.cart")}}',
             type: 'delete',

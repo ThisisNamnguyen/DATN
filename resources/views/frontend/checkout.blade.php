@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="sub-title">
-                            <h2>Địa chị nhận hàng</h2>
+                            <h2>Địa chỉ nhận hàng</h2>
                         </div>
                         <div class="card shadow-lg border-0">
                             <div class="card-body checkout-form">
@@ -81,7 +81,7 @@
                                 @foreach (Cart::content() as $item)
                                 <div class="d-flex justify-content-between pb-2">
                                     <div class="h6">{{$item->name}} X {{$item->qty}}</div>
-                                    <div class="h6">{{number_format($item->qty*$item->price)}}đ</div>
+                                    {{-- <div class="h6">{{number_format($item->qty*$item->price)}}đ</div> --}}
                                 </div>
                                 @endforeach
                                 <div class="d-flex justify-content-between summery-end">

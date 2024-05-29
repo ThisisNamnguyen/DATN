@@ -129,7 +129,7 @@ class AuthController extends Controller
         $validator = Validator::make($request->all(),[
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$userId.',id',
-            'mobile`' => 'required',
+            'mobile' => 'required',
             'city' => 'required',
             'address' => 'required'
         ]);
@@ -141,7 +141,7 @@ class AuthController extends Controller
                     'user_id' => $userId,
                     'name' => $request->name,
                     'email' => $request->email,
-                    'mobile`' => $request->mobile,
+                    'mobile' => $request->mobile,
                     'city' => $request->city,
                     'address' => $request->address,
                 ]
@@ -298,11 +298,13 @@ class AuthController extends Controller
         $order->status = 'shipped';
         $order->save();
 
+        $message = 'Tình trạng đơn hàng cập nhật thành công';
         session()->flash('success', 'Tình trạng đơn hàng cập nhật thành công');
-        return response()->json([
-            'status' => true,
-            'message' => 'Tình trạng đơn hàng cập nhật thành công'
-        ]);
+        // return response()->json([
+        //     'status' => true,
+        //     'message' => 'Tình trạng đơn hàng cập nhật thành công'
+        // ]);
+        return redirect()->route('frontend.account.orderDetail', $id)->with('success', $message);
     }
 
     public function processForgotPassword(Request $request) {
